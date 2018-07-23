@@ -27,7 +27,7 @@ We have several .txt files with data that we need to load it into our FactCurren
 * We drag a Foreach Loop Container to our Control Flow tab. We are going to set up a variable (@FilePath) with the path and then use an expression to tie the directory to the variable. In this way, we a centralized spot for all of our configurations. 
 
 <p align="center">
-  <img width="200" src="Images/Fig3.jpg">
+  <img width="400" src="Images/Fig3.jpg">
 </p>
 
 * Now, we are going to create a variable @FileRootDir in order to create an expression in our Foreach Loop Container
@@ -35,25 +35,31 @@ We have several .txt files with data that we need to load it into our FactCurren
 * Now, we are going to set our Data FLow inside of our Loop. 
 
 <p align="center">
-  <img width="200" src="Images/Fig4.jpg">
+  <img width="300" src="Images/Fig4.jpg">
 </p>
 
 * We are going to do a Lookup in our DW Dim.Currency and we are going to look up the currency key by joining the currency ID to the currency alternate key (pulling out the currency key). 
 
 <p align="center">
-  <img width="200" src="Images/Fig5jpg">
+  <img width="300" src="Images/Fig5.jpg">
 </p>
 
 * We are going to need another lookup for our Date look up which is going to be the Lookup Match Output. 
 
 <p align="center">
-  <img width="200" src="Images/Fig6jpg">
+  <img width="300" src="Images/Fig6.jpg">
 </p>
 
 * Finally we have to put the data in our destination so we drag an OLE DB Destination. The column mapping is the following: 
 
 <p align="center">
-  <img width="200" src="Images/Fig7jpg">
+  <img width="300" src="Images/Fig7.jpg">
 </p>
 
+* The final result is the following Data Flow:
 
+<p align="center">
+  <img width="400" src="Images/Fig8.jpg">
+</p>
+
+* 
