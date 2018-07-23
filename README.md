@@ -1,6 +1,6 @@
 # ETL Dynamic Package Solution for AdventureWorks
 
-AdventureWorks is a Microsoft-supplied sample that model a fictitious bicycle company. Microsoft provided the OLTP and data warehouse. We will design and implement an ETL solution containing four packages that load up a data. 
+AdventureWorks is a Microsoft-supplied sample that model a fictitious bicycle company. Microsoft provided the OLTP and data warehouse. We will design and implement an ETL project consisting of several packages that load data warehose tables.
 
 ### Environment
 * Microsoft SQL Server Management Studio 2012
