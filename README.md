@@ -79,11 +79,11 @@ We have a folder with several .txt files ('SampleData' folder) with important da
 * Now, we are going to introduce events in our design. We want to track exactly when each file is loaded to ensure that if something did go wrong, we would know that file it stopped on. With this SQL query `ExecutionInfo` we are going to create a table that is going to track information relating to the task. In our event handlers tab we are going to choose the 'FactCurrencyRate' as an executable and we are going to use OnPostExecute. 
 
 <p align="center">
-  <img width="400" src="Images/Fig9.jpg">
+  <img width="500" src="Images/Fig9.jpg">
 </p>
 
 * Finally, we create and run our Master Package where we tie up everything together. We also created a script task where we specify that if one of the taks fails we are going to get a notification. The Control Flow view from the master package is the following:
 
 <p align="center">
-  <img width="400" src="Images/Fig13.jpg">
+  <img width="500" src="Images/Fig13.jpg">
 </p>
