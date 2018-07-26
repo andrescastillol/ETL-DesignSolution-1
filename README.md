@@ -70,4 +70,9 @@ We have a folder with several .txt files ('SampleData' folder) with important da
   <img width="400" src="Images/Fig8.jpg">
 </p>
 
-* 
+* Now, one of the goals is to archive a file. So, we are going to run these file systems test on expressions to generate a folder based on the current date. Thus, any time that we run this process, we will get a folder that is automatically created with a date stamp on it and then all of the files will get copied into that folder. In order to make this happen, we are going to need to use the file system task inside of our foreach loop to basically say that when it is done with the file, push it over into the archive directory. First, we are going to manually create an archive directory. Then, we specify a variable 'ArchiveRootDir' and we run this variable in an expression using @[Users::FileRootDir] + ""\\Archive\\" which append the word "Archive" onto the end of it. In addition, we are going to need another variable called 'ArchiveFileDir' which is going to be the file directory because we are going to make more directories inside of the Archive file. For the 'ArchiveFileDir' we are going to use an expression task containing `ArchiveDirExpression.txt`. The results of our data flow is the following
+
+<p align="center">
+  <img width="400" src="Images/Fig10.jpg">
+</p>
+
