@@ -70,9 +70,20 @@ We have a folder with several .txt files ('SampleData' folder) with important da
   <img width="400" src="Images/Fig8.jpg">
 </p>
 
-* Now, one of the goals is to archive a file. So, we are going to run these file systems test on expressions to generate a folder based on the current date. Thus, any time that we run this process, we will get a folder that is automatically created with a date stamp on it and then all of the files will get copied into that folder. In order to make this happen, we are going to need to use the file system task inside of our foreach loop to basically say that when it is done with the file, push it over into the archive directory. First, we are going to manually create an archive directory. Then, we specify a variable 'ArchiveRootDir' and we run this variable in an expression using @[Users::FileRootDir] + ""\\Archive\\" which append the word "Archive" onto the end of it. In addition, we are going to need another variable called 'ArchiveFileDir' which is going to be the file directory because we are going to make more directories inside of the Archive file. For the 'ArchiveFileDir' we are going to use an expression task containing `ArchiveDirExpression.txt`. The results of our data flow is the following
+* Now, one of the goals is to archive a file. So, we are going to run these file systems test on expressions to generate a folder based on the current date. Thus, any time that we run this process, we will get a folder that is automatically created with a date stamp on it and then all of the files will get copied into that folder. In order to make this happen, we are going to need to use the file system task inside of our foreach loop to basically say that when it is done with the file, push it over into the archive directory. First, we are going to manually create an archive directory. Then, we specify a variable 'ArchiveRootDir' and we run this variable in an expression using @[Users::FileRootDir] + ""\\Archive\\" which append the word "Archive" onto the end of it. In addition, we are going to need another variable called 'ArchiveFileDir' which is going to be the file directory because we are going to make more directories inside of the Archive file. For the 'ArchiveFileDir' we are going to use an expression task containing `ArchiveDirExpression.txt`. The results of our Control Flow is the following:
 
 <p align="center">
   <img width="400" src="Images/Fig10.jpg">
 </p>
 
+* Now, we are going to introduce events in our design. We want to track exactly when each file is loaded to ensure that if something did go wrong, we would know that file it stopped on. With this SQL query `ExecutionInfo` we are going to create a table that is going to track information relating to the task. In our event handlers tab we are going to choose the 'FactCurrencyRate' as an executable and we are going to use OnPostExecute. 
+
+<p align="center">
+  <img width="400" src="Images/Fig9.jpg">
+</p>
+
+* Finally, we create and run our Master Package where we tie up everything together. We also created a script task where we specify that if one of the taks fails we are going to get a notification. The Control Flow view from the master package is the following:
+
+<p align="center">
+  <img width="400" src="Images/Fig13.jpg">
+</p>
