@@ -1,21 +1,21 @@
 # ETL Dynamic Package Solution for AdventureWorks
 
-AdventureWorks is a Microsoft-supplied sample that model a fictitious bicycle company. Microsoft provided the OLTP and data warehouse. We will design and implement an ETL project consisting of several packages that load data warehose tables.
+AdventureWorks is a Microsoft-supplied sample that model a fictitious bicycle company. Microsoft provided the OLTP and the OLAP DW. We will design and implement an ETL project consisting of several packages, with one master package, that load data from different sources. 
 
 ### Environment
-* Microsoft SQL Server Management Studio 2012
+* Microsoft SQL Server Management Studio 2012 (SSMS)
 * Microsoft SQL Server Data Tools
 
 ### Problem
-We have several .txt files with data that we need to load it into our FactCurrencyRates table. Since our FactCurrencyRates table have to primary key (CurrencyKey and DateKey) we need to load up those dimensions as well (DimeCurrency and DimDate). Therefore, our plan is to use a combination of loops, expressions, flat file connection manager, and a data flow to load these files dynamically. 
+We have a folder with several .txt files ('Sample Files' folder) with important data that we need to load it into our fact table 'FactCurrencyRates'. Since our 'FactCurrencyRate' table have two primary keys ('CurrencyKey' and 'DateKey') we need to load up those dimensions as well ('DimCurrency' and 'DimDate'). Therefore, our plan is to use a combination of loops, expressions, flat file connection managers, and a data flow to load these files dynamically. 
 
 <p align="center">
   <img width="300" src="Images/Fig1.jpg">
 </p>
 
 ### Tasks
-1. First we add our project connection managers: OLTP AdventureWorks database as well as our staging AdventureWorks DW environment. 
-2. In our DimDate package: we only need to add an Execute SQL task to generate dates using `DimDateSQLQuery` in our SQLStatement.
+1. First we add our project connection managers: OLTP AdventureWorks database as well as our staging AdventureWorks DW environment. The SQL code that we used to create our staging environment from our current DW is in the `Script` folder. 
+2. In our 'DimDate' package: we only need to add an Execute SQL Task to generate dates using `DimDateSQLQuery` in our SQLStatement. This T-SQL code generates dates from a time frame that we specify. 
 
 <p align="center">
   <img width="200" src="Images/Fig2.jpg">
